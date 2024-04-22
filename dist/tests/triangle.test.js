@@ -1,7 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const Triangle_1 = require("../models/Triangle");
+const TriangleFactory_1 = require("../fact/TriangleFactory");
 const Point_1 = require("../models/Point");
+const Triangle_1 = require("../models/Triangle");
 describe('Triangle functionality', () => {
     let p1;
     let p2;
@@ -11,7 +12,7 @@ describe('Triangle functionality', () => {
         p1 = new Point_1.Point(0, 0);
         p2 = new Point_1.Point(4, 0);
         p3 = new Point_1.Point(0, 3);
-        triangle = new Triangle_1.Triangle('testTriangle', p1, p2, p3);
+        triangle = TriangleFactory_1.TriangleFactory.createTriangle('testTriangle', p1, p2, p3);
     });
     test('calculates perimeter correctly', () => {
         expect(triangle.perimeter()).toBeCloseTo(12);

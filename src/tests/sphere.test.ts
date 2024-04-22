@@ -1,5 +1,6 @@
-import { Sphere } from '../models/Sphere';
+import { SphereFactory } from '../fact/SphereFactory';
 import { Point } from '../models/Point';
+import { Sphere } from '../models/Sphere';
 
 describe('Sphere functionality', () => {
     let center: Point;
@@ -9,11 +10,11 @@ describe('Sphere functionality', () => {
     beforeEach(() => {
         center = new Point(1, 1, 1);
         radius = 2;
-        sphere = new Sphere('testSphere', center, radius);
+        sphere = SphereFactory.createSphere('testSphere', center, radius);
     });
 
     test('calculates surface area correctly', () => {
-        expect(sphere.surfaceArea()).toBeCloseTo(4 * Math.PI * radius * radius);
+        expect(sphere.area()).toBeCloseTo(4 * Math.PI * radius * radius);
     });
 
     test('calculates volume correctly', () => {

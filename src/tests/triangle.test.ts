@@ -1,5 +1,6 @@
-import { Triangle } from '../models/Triangle';
+import { TriangleFactory } from '../fact/TriangleFactory';
 import { Point } from '../models/Point';
+import { Triangle } from '../models/Triangle';
 
 describe('Triangle functionality', () => {
     let p1: Point;
@@ -11,7 +12,7 @@ describe('Triangle functionality', () => {
         p1 = new Point(0, 0);
         p2 = new Point(4, 0);
         p3 = new Point(0, 3);
-        triangle = new Triangle('testTriangle', p1, p2, p3);
+        triangle = TriangleFactory.createTriangle('testTriangle', p1, p2, p3);
     });
 
     test('calculates perimeter correctly', () => {

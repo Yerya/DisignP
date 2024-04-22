@@ -1,24 +1,27 @@
+import { Shape } from './Shape';
 import { Point } from './Point';
 
-export class Sphere {
-    constructor(public id: string, public center: Point, public radius: number) {}
+export class Sphere extends Shape {
+    constructor(id: string, public center: Point, public radius: number) {
+        super(id);
+    }
 
-    // Площадь поверхности шара
-    surfaceArea(): number {
+    area(): number {
         return 4 * Math.PI * this.radius * this.radius;
     }
 
-    // Объем шара
+    perimeter(): number {
+        // Сфера не имеет периметра, но если имеется в виду "длина окружности на экваторе", то:
+        return 2 * Math.PI * this.radius;
+    }
+
     volume(): number {
-        return (4 / 3) * Math.PI * this.radius**3;
+        return (4 / 3) * Math.PI * Math.pow(this.radius, 3);
     }
 
-    // Касание шара координатной плоскости
-    touchesPlane(): boolean {
-        // Check distance from the sphere center to each coordinate plane
-        return Math.abs(this.center.x) <= this.radius ||
-            Math.abs(this.center.y) <= this.radius ||
-            Math.abs(this.center.z) <= this.radius;
+    touchesPlaneOnDistance(distance: number): boolean {
+        return Math.abs(this.center.x) <= this.radius + distance ||
+            Math.abs(this.center.y) <= this.radius + distance ||
+            Math.abs(this.center.z) <= this.radius + distance;
     }
-
 }

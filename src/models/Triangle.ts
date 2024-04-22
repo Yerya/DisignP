@@ -1,9 +1,11 @@
+import { Shape } from './Shape';
 import { Point } from './Point';
 
-export class Triangle {
-    constructor(public id: string, public p1: Point, public p2: Point, public p3: Point) {}
+export class Triangle extends Shape {
+    constructor(id: string, public p1: Point, public p2: Point, public p3: Point) {
+        super(id);
+    }
 
-    // Метод вычисления площади треугольника
     area(): number {
         const a = this.distance(this.p1, this.p2);
         const b = this.distance(this.p2, this.p3);
@@ -12,14 +14,20 @@ export class Triangle {
         return Math.sqrt(s * (s - a) * (s - b) * (s - c));
     }
 
-    // Метод вычисления периметра треугольника
     perimeter(): number {
         return this.distance(this.p1, this.p2) + this.distance(this.p2, this.p3) + this.distance(this.p3, this.p1);
     }
 
-    // Вспомогательный метод для вычисления расстояния между двумя точками
+    touchesPlaneOnDistance(distance: number): boolean {
+        // Логика для проверки касания плоскости. Это упрощенный пример,
+        // предполагается, что плоскость XY, XZ или YZ касается, если одна из вершин находится на нужном расстоянии
+        return [this.p1, this.p2, this.p3].some(point =>
+            Math.abs(point.x) === distance || Math.abs(point.y) === distance || Math.abs(point.z) === distance
+        );
+    }
+
     private distance(p1: Point, p2: Point): number {
-        return Math.sqrt((p2.x - p1.x) ** 2 + (p2.y - p1.y) ** 2);
+        return Math.sqrt((p2.x - p1.x) ** 2 + (p2.y - p1.y) ** 2 + (p2.z - p1.z) ** 2);
     }
 
     // Метод для проверки, является ли треугольник прямоугольным
