@@ -30,7 +30,3 @@ export const readFiguresFromFile = (filePath: string) => {
     });
 };
 
-
-// Example usage:
-const filePath = path.join(__dirname, '../../data/figures.txt');
-readFiguresFromFile(filePath);

@@ -7,7 +7,6 @@ exports.readFiguresFromFile = void 0;
 const DataValidators_1 = require("../validators/DataValidators");
 const Logger_1 = require("../utils/Logger");
 const fs_1 = __importDefault(require("fs"));
-const path_1 = __importDefault(require("path"));
 const readFiguresFromFile = (filePath) => {
     const content = fs_1.default.readFileSync(filePath, 'utf-8');
     const lines = content.split('\n');
@@ -37,6 +36,3 @@ const readFiguresFromFile = (filePath) => {
     });
 };
 exports.readFiguresFromFile = readFiguresFromFile;
-// Example usage:
-const filePath = path_1.default.join(__dirname, '../../data/figures.txt');
-(0, exports.readFiguresFromFile)(filePath);
