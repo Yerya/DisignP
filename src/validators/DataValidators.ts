@@ -1,5 +1,3 @@
-import { logger } from '../utils/Logger';
-
 export class TriangleDataValidator {
     static isValidTriangleData(parts: string[]): string | null {
         if (parts.length !== 6) {
