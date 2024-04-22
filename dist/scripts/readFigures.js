@@ -22,7 +22,6 @@ const readFiguresFromFile = (filePath) => {
                 if (line.trim() !== '') {
                     Logger_1.logger.error(`Invalid data on line ${index + 1}: ${line}`);
                 }
-                return;
             }
         }
         catch (error) {
