@@ -1,7 +1,6 @@
 import { TriangleDataValidator, SphereDataValidator } from '../validators/DataValidators';
 import { logger } from '../utils/Logger';
 import fs from 'fs';
-import path from 'path';
 
 export const readFiguresFromFile = (filePath: string) => {
     const content = fs.readFileSync(filePath, 'utf-8');
