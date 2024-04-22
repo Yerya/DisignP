@@ -14,14 +14,25 @@ const readFiguresFromFile = (filePath) => {
         const parts = line.split(' ');
         const figureType = parts.shift();
         try {
-            if (figureType === 'Triangle' && DataValidators_1.TriangleDataValidator.isValidTriangleData(parts)) {
+            if (figureType === 'Triangle') {
+                const error = DataValidators_1.TriangleDataValidator.isValidTriangleData(parts);
+                if (error) {
+                    Logger_1.logger.error(`Error on line ${index + 1}: ${error}`);
+                    return;
+                }
             }
-            else if (figureType === 'Sphere' && DataValidators_1.SphereDataValidator.isValidSphereData(parts)) {
+            else if (figureType === 'Sphere') {
+                const error = DataValidators_1.SphereDataValidator.isValidSphereData(parts);
+                if (error) {
+                    Logger_1.logger.error(`Error on line ${index + 1}: ${error}`);
+                    return;
+                }
             }
             else {
                 if (line.trim() !== '') {
                     Logger_1.logger.error(`Invalid data on line ${index + 1}: ${line}`);
                 }
+                return;
             }
         }
         catch (error) {

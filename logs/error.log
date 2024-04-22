@@ -73,3 +73,19 @@
 2024-04-22 17:42:04 error: Invalid data: There should be exactly 6 numbers for three points of a triangle.
 2024-04-22 17:42:04 error: Invalid data on line 2: Triangle 0 0 0 1 1 0 2
 2024-04-22 17:42:04 error: Invalid data on line 4: Invalid data here
+2024-04-22 17:44:22 error: Invalid data: There should be exactly 6 numbers for three points of a triangle.
+2024-04-22 17:44:22 error: Invalid data on line 2: Triangle 0 0 0 1 1 0 2
+2024-04-22 17:44:22 error: Invalid data on line 4: Invalid data here
+2024-04-22 17:49:52 error: Invalid data: There should be exactly 6 numbers for three points of a triangle.
+2024-04-22 17:49:52 error: Invalid data on line 2: Triangle 0 0 0 1 1 0 2
+2024-04-22 17:49:52 error: Invalid data on line 4: Invalid data here
+2024-04-22 17:50:14 error: Error on line 2: Invalid data: There should be exactly 6 numbers for three points of a triangle. Got 7 numbers instead.
+2024-04-22 17:50:14 error: Invalid data on line 4: Invalid data here
+2024-04-22 17:50:37 error: Error on line 2: Invalid data: There should be exactly 6 numbers for three points of a triangle. Got 7 numbers instead.
+2024-04-22 17:50:37 error: Error on line 3: Invalid data: There should be exactly 4 numbers for a sphere (x, y, z, radius).
+2024-04-22 17:50:37 error: Invalid data on line 4: Invalid data here
+2024-04-22 17:50:58 error: Error on line 2: Invalid data: There should be exactly 6 numbers for three points of a triangle. Got 7 numbers instead.
+2024-04-22 17:50:58 error: Error on line 3: Invalid data: There should be exactly 4 numbers for a sphere (x, y, z, radius).
+2024-04-22 17:50:58 error: Invalid data on line 4: Invalid data here
+2024-04-22 17:51:18 error: Error on line 2: Invalid data: There should be exactly 6 numbers for three points of a triangle. Got 7 numbers instead.
+2024-04-22 17:51:18 error: Invalid data on line 4: Invalid data here

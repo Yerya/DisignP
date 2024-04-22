@@ -11,8 +11,18 @@ export const readFiguresFromFile = (filePath: string) => {
         const figureType = parts.shift();
 
         try {
-            if (figureType === 'Triangle' && TriangleDataValidator.isValidTriangleData(parts)) {
-            } else if (figureType === 'Sphere' && SphereDataValidator.isValidSphereData(parts)) {
+            if (figureType === 'Triangle') {
+                const error = TriangleDataValidator.isValidTriangleData(parts);
+                if (error) {
+                    logger.error(`Error on line ${index + 1}: ${error}`);
+                    return;
+                }
+            } else if (figureType === 'Sphere') {
+                const error = SphereDataValidator.isValidSphereData(parts);
+                if (error) {
+                    logger.error(`Error on line ${index + 1}: ${error}`);
+                    return;
+                }
             } else {
                 if (line.trim() !== '') {
                     logger.error(`Invalid data on line ${index + 1}: ${line}`);
@@ -28,4 +38,3 @@ export const readFiguresFromFile = (filePath: string) => {
         }
     });
 };
-
