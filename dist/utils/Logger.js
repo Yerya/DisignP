@@ -22,12 +22,13 @@ var __importStar = (this && this.__importStar) || function (mod) {
     __setModuleDefault(result, mod);
     return result;
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.logger = void 0;
 const winston = __importStar(require("winston"));
-// Определение формата логов
 const logFormat = winston.format.combine(winston.format.timestamp({ format: 'YYYY-MM-DD HH:mm:ss' }), winston.format.printf(info => `${info.timestamp} ${info.level}: ${info.message}`));
-// Создание логгера
 exports.logger = winston.createLogger({
     level: 'info',
     format: logFormat,
@@ -36,14 +37,12 @@ exports.logger = winston.createLogger({
         new winston.transports.Console({
             format: winston.format.combine(winston.format.colorize(), logFormat)
         }),
-        // Вывод логов в файл
         new winston.transports.File({ filename: 'logs/error.log', level: 'error' }),
         new winston.transports.File({ filename: 'logs/combined.log' })
     ]
 });
-// Создание папки для логов, если она ещё не существует
-const fs = require('fs');
+const fs_1 = __importDefault(require("fs"));
 const dir = './logs';
-if (!fs.existsSync(dir)) {
-    fs.mkdirSync(dir);
+if (!fs_1.default.existsSync(dir)) {
+    fs_1.default.mkdirSync(dir);
 }

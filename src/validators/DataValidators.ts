@@ -20,7 +20,6 @@ export class TriangleDataValidator {
         const p2 = { x: numbers[2], y: numbers[3] };
         const p3 = { x: numbers[4], y: numbers[5] };
 
-        // Checking for collinearity using the area formula for a triangle
         const area = p1.x * (p2.y - p3.y) + p2.x * (p3.y - p1.y) + p3.x * (p1.y - p2.y);
         if (area === 0) {
             return "Invalid triangle formation: Points are collinear.";
