@@ -8,7 +8,7 @@ const Specifications_1 = require("./services/Specifications");
 const warehouse = Warehouse_1.Warehouse.getInstance();
 const repo = new ShapeRepository_1.ShapeRepository(warehouse);
 (0, readFigures_1.readFiguresFromFile)('./data/figures.txt', repo);
-// repo.remove('triangle-0');
+// repo.remove('triangle-line-1');
 console.log('All shapes in the repository:', repo.sort(Specifications_1.Specifications.sortByX));
 repo.findAll().forEach(shape => {
     console.log(`Metrics for ${shape.id}:`, warehouse.getMetrics(shape.id));

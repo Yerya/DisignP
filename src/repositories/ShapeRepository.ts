@@ -1,4 +1,4 @@
-// src/repositories/ShapeRepository.ts
+
 import { Shape } from '../models/Shape';
 import {Warehouse} from "../utils/Warehouse";
 
@@ -11,7 +11,7 @@ interface IRepository<T> {
     sort(criteria: (a: T, b: T) => number): T[];
 }
 
-export class ShapeRepository implements IRepository<Shape> {  // Добавлено implements IRepository<Shape>
+export class ShapeRepository implements IRepository<Shape> {
     private items: Map<string, Shape> = new Map();
     private warehouse: Warehouse;
 
@@ -21,7 +21,7 @@ export class ShapeRepository implements IRepository<Shape> {  // Добавле�
 
     add(item: Shape): void {
         this.items.set(item.id, item);
-        this.warehouse.update(item);  // Обновление метрик при добавлении фигуры
+        this.warehouse.update(item);
     }
 
     remove(id: string): void {

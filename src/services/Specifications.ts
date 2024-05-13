@@ -1,4 +1,4 @@
-// src/services/Specifications.ts
+
 import { Shape } from '../models/Shape';
 import { Triangle } from '../models/Triangle';
 import { Sphere } from '../models/Sphere';

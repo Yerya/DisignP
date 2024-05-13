@@ -1,4 +1,4 @@
-// src/utils/Warehouse.ts
+
 import { Shape } from '../models/Shape';
 import { Sphere } from '../models/Sphere';
 import { SphereService } from '../services/SphereService';
