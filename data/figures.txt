@@ -3,4 +3,3 @@ Triangle 0 0 0 1 1 0 2
 Sphere 1 1 1 2
 Invalid data here
 Triangle 3 0 0 4 0 3
-

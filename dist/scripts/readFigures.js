@@ -14,22 +14,37 @@ const readFiguresFromFile = (filePath, repository) => {
     const content = fs_1.default.readFileSync(filePath, 'utf-8');
     const lines = content.split('\n');
     lines.forEach((line, index) => {
-        const parts = line.trim().split(' ');
+        const trimmedLine = line.trim();
+        if (trimmedLine === '') {
+            return; // Skip empty lines
+        }
+        const parts = trimmedLine.split(' ');
         const figureType = parts.shift();
         try {
-            if (figureType === 'Triangle' && DataValidators_1.TriangleDataValidator.isValidTriangleData(parts) === null) {
-                const [x1, y1, x2, y2, x3, y3] = parts.map(Number);
-                const triangle = TriangleFactory_1.TriangleFactory.createTriangle(`triangle-${index}`, new Point_1.Point(x1, y1), new Point_1.Point(x2, y2), new Point_1.Point(x3, y3));
-                repository.add(triangle);
+            if (figureType === 'Triangle') {
+                const error = DataValidators_1.TriangleDataValidator.isValidTriangleData(parts);
+                if (error === null) {
+                    const [x1, y1, x2, y2, x3, y3] = parts.map(Number);
+                    const triangle = TriangleFactory_1.TriangleFactory.createTriangle(`triangle-${index}`, new Point_1.Point(x1, y1), new Point_1.Point(x2, y2), new Point_1.Point(x3, y3));
+                    repository.add(triangle);
+                }
+                else {
+                    Logger_1.logger.error(`Error on line ${index + 1}: ${error}`);
+                }
             }
-            else if (figureType === 'Sphere' && DataValidators_1.SphereDataValidator.isValidSphereData(parts) === null) {
-                const [x, y, z, radius] = parts.map(Number);
-                const sphere = SphereFactory_1.SphereFactory.createSphere(`sphere-${index}`, new Point_1.Point(x, y, z), radius);
-                repository.add(sphere);
+            else if (figureType === 'Sphere') {
+                const error = DataValidators_1.SphereDataValidator.isValidSphereData(parts);
+                if (error === null) {
+                    const [x, y, z, radius] = parts.map(Number);
+                    const sphere = SphereFactory_1.SphereFactory.createSphere(`sphere-${index}`, new Point_1.Point(x, y, z), radius);
+                    repository.add(sphere);
+                }
+                else {
+                    Logger_1.logger.error(`Error on line ${index + 1}: ${error}`);
+                }
             }
             else {
-                const error = figureType === 'Triangle' ? DataValidators_1.TriangleDataValidator.isValidTriangleData(parts) : DataValidators_1.SphereDataValidator.isValidSphereData(parts);
-                Logger_1.logger.error(`Error on line ${index + 1}: ${error || 'Invalid figure type'}`);
+                Logger_1.logger.error(`Error on line ${index + 1}: Invalid figure type`);
             }
         }
         catch (error) {
