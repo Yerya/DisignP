@@ -8,6 +8,7 @@ const warehouse = Warehouse.getInstance();
 const repo = new ShapeRepository(warehouse);
 
 readFiguresFromFile('./data/figures.txt', repo);
+// repo.remove('triangle-0');
 
 console.log('All shapes in the repository:', repo.sort(Specifications.sortByX));
 repo.findAll().forEach(shape => {

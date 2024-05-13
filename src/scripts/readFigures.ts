@@ -24,7 +24,7 @@ export const readFiguresFromFile = (filePath: string, repository: ShapeRepositor
                 const error = TriangleDataValidator.isValidTriangleData(parts);
                 if (error === null) {
                     const [x1, y1, x2, y2, x3, y3] = parts.map(Number);
-                    const triangle = TriangleFactory.createTriangle(`triangle-${index}`, new Point(x1, y1), new Point(x2, y2), new Point(x3, y3));
+                    const triangle = TriangleFactory.createTriangle(`triangle-line-${index + 1}`, new Point(x1, y1), new Point(x2, y2), new Point(x3, y3));
                     repository.add(triangle);
                 } else {
                     logger.error(`Error on line ${index + 1}: ${error}`);
@@ -33,7 +33,7 @@ export const readFiguresFromFile = (filePath: string, repository: ShapeRepositor
                 const error = SphereDataValidator.isValidSphereData(parts);
                 if (error === null) {
                     const [x, y, z, radius] = parts.map(Number);
-                    const sphere = SphereFactory.createSphere(`sphere-${index}`, new Point(x, y, z), radius);
+                    const sphere = SphereFactory.createSphere(`sphere-line-${index + 1}`, new Point(x, y, z), radius);
                     repository.add(sphere);
                 } else {
                     logger.error(`Error on line ${index + 1}: ${error}`);

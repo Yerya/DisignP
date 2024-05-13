@@ -25,7 +25,7 @@ const readFiguresFromFile = (filePath, repository) => {
                 const error = DataValidators_1.TriangleDataValidator.isValidTriangleData(parts);
                 if (error === null) {
                     const [x1, y1, x2, y2, x3, y3] = parts.map(Number);
-                    const triangle = TriangleFactory_1.TriangleFactory.createTriangle(`triangle-${index}`, new Point_1.Point(x1, y1), new Point_1.Point(x2, y2), new Point_1.Point(x3, y3));
+                    const triangle = TriangleFactory_1.TriangleFactory.createTriangle(`triangle-line-${index + 1}`, new Point_1.Point(x1, y1), new Point_1.Point(x2, y2), new Point_1.Point(x3, y3));
                     repository.add(triangle);
                 }
                 else {
@@ -36,7 +36,7 @@ const readFiguresFromFile = (filePath, repository) => {
                 const error = DataValidators_1.SphereDataValidator.isValidSphereData(parts);
                 if (error === null) {
                     const [x, y, z, radius] = parts.map(Number);
-                    const sphere = SphereFactory_1.SphereFactory.createSphere(`sphere-${index}`, new Point_1.Point(x, y, z), radius);
+                    const sphere = SphereFactory_1.SphereFactory.createSphere(`sphere-line-${index + 1}`, new Point_1.Point(x, y, z), radius);
                     repository.add(sphere);
                 }
                 else {
