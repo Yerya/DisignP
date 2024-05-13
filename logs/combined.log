@@ -151,3 +151,5 @@
 2024-05-13 15:05:14 error: Error on line 6: Invalid figure type
 2024-05-13 15:07:13 error: Error on line 2: Invalid data: There should be exactly 6 numbers for three points of a triangle. Got 7 numbers instead.
 2024-05-13 15:07:13 error: Error on line 4: Invalid figure type
+2024-05-13 15:12:00 error: Error on line 2: Invalid data: There should be exactly 6 numbers for three points of a triangle. Got 7 numbers instead.
+2024-05-13 15:12:00 error: Error on line 4: Invalid figure type

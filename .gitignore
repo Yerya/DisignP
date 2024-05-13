@@ -15,5 +15,5 @@ yarn-debug.log*
 yarn-error.log*
 
 # Logs
-logs/
+/logs
 *.log
