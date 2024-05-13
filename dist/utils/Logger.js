@@ -33,7 +33,6 @@ exports.logger = winston.createLogger({
     level: 'info',
     format: logFormat,
     transports: [
-        // Вывод логов в консоль
         new winston.transports.Console({
             format: winston.format.combine(winston.format.colorize(), logFormat)
         }),

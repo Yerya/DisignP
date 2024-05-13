@@ -1,3 +1,4 @@
+// src/models/Sphere.ts
 import { Shape } from './Shape';
 import { Point } from './Point';
 import { SphereService } from '../services/SphereService';
@@ -11,7 +12,11 @@ export class Sphere extends Shape {
         return SphereService.area(this);
     }
 
+    volume(): number {
+        return SphereService.volume(this);
+    }
+
     perimeter(): number {
-        return 0;
+        throw new Error("Perimeter is not defined for spheres");
     }
 }
