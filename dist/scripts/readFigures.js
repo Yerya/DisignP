@@ -16,7 +16,7 @@ const readFiguresFromFile = (filePath, repository) => {
     lines.forEach((line, index) => {
         const trimmedLine = line.trim();
         if (trimmedLine === '') {
-            return; // Skip empty lines
+            return;
         }
         const parts = trimmedLine.split(' ');
         const figureType = parts.shift();

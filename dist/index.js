@@ -1,6 +1,5 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-// src/index.ts
 const ShapeRepository_1 = require("./repositories/ShapeRepository");
 const Warehouse_1 = require("./utils/Warehouse");
 const readFigures_1 = require("./scripts/readFigures");

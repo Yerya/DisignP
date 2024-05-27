@@ -8,7 +8,7 @@ class ShapeRepository {
     }
     add(item) {
         this.items.set(item.id, item);
-        this.warehouse.update(item); // Обновление метрик при добавлении фигуры
+        this.warehouse.update(item);
     }
     remove(id) {
         this.items.delete(id);
